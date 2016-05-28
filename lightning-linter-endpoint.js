@@ -100,6 +100,11 @@ module.exports = {
           });
         });
 
+        app.post('/lint-json', function (req, res) {
+          var messages = lint(req.body);
+          res.json(messages);
+        });
+
 
         app.get('/lint', function (req,res) {
               res.render('lint',{
