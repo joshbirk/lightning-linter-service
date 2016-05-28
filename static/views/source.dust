@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<script src="/codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="/slds_105/assets/styles/salesforce-lightning-design-system.min.css">
+<script src="/codemirror/mode/javascript/javascript.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('source'),{
+		lineNumbers: true,
+	    mode: "javascript",
+	    styleActiveLine: true
+	});	
+
+	$('#parse').on('click',function() {
+		$.ajax({
+			  url:'/lint',
+			  type:"POST",
+			  data:myCodeMirror.getValue(),
+			  contentType:"text/plain",
+			  dataType:"text",
+			  success: function(html) {
+			  		console.log('updated');
+					$('#linter').html(html);
+					
+					$('.line-div').on('click',function() {
+						console.log($( this ).data("line-number"));
+						myCodeMirror.setCursor({pos: $( this ).data("line-number")});
+					});
+
+
+				}
+		});
+	});
+
+
+});
+</script>
+</HEAD>
+
+<BODY>  
+<textarea id="source" style="width:300px; height:50%">
+
+</textarea>
+<br/>
+<button id="parse" style="width:100%;">Parse</button>
+
+<div class="slds">
+
+<div id="linter"></div>
+
+
+</div>
+</HTML>

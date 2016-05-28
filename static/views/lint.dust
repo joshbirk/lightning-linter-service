@@ -1,0 +1,18 @@
+<ul class="slds-list--vertical slds-has-dividers--bottom-space slds-has-selection">
+{#messages}
+  <li class="slds-list__item">
+    <div class="line-div slds-media slds-tile" data-line-number="{line}">
+      <div class="slds-text-heading--large">{line}</div>
+      {column}
+      <div class="slds-media__body slds-m-left--medium">
+        {message}
+        <ul class="slds-tile__detail slds-list--horizontal slds-has-dividers slds-text-body--small">
+          <li class="slds-truncate slds-list__item">{source}</li>
+        </ul>
+      </div>
+    </div>
+  </li>
+{/messages}
+</ul>
+
+
