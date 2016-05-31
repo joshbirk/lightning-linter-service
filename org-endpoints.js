@@ -10,7 +10,8 @@ module.exports = {
 		var oauth2 = new jsforce.OAuth2({
 		    clientId: '3MVG9sG9Z3Q1RlbdgwDkzM3OQ0gE0qynhV.wlup_p_F79BLSFE0mCznTvE.JFmi7kyRdK5bqSNkG5dINe.SWa',
 		    clientSecret: '4351326343549344903',
-		    redirectUri: 'http://localhost:8675/oauth/_callback'
+		    redirectUri: 'https://lightning-linter.herokuapp.com/oauth/_callback'
+		//    redirectUri: 'http://localhost:8675/oauth/_callback'
 		});
 
 		/* SF OAuth request, redirect to SF login */
