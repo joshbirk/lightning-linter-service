@@ -11,7 +11,7 @@ var dust = require('express-dustjs')
 var session = require('express-session')
 
 app.use(bodyParser.text({ type: 'text/plain' }));
-
+app.use(express.bodyParser({limit: '50mb'}));
 
 var sessionOptions = {
   secret: "mxyplyx",
