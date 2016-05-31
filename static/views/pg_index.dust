@@ -4,12 +4,21 @@
 {<body_content}
 
 <h2 class="slds-text-heading--large slds-truncate">Welcome to Lightning Linter Service</h2>
+<div class="slds-m-right--large">
 <P>
 This is a web application wrapper around <a href="https://www.npmjs.com/package/salesforce-lightning-cli">Salesforce Lightning CLI</a>, using 
 the same pacakge but exposing Linter in the browser so as to not require syncing components on the client to run.
+<BR /><BR />
+</P>
+<P>
+You can either <a href="/lint_code">submit code blocks for parsing</a> or <a href="/oauth/auth">log into Salesforce to parse all Lightning Components at once</a>.  There is also a public endpoint at '/lint-json' which accepts source code in the POST body and returns a JSON list of Lint messages.
+<BR /><BR />
+</P>
+<P>There is also a very experimental <a href="https://chrome.google.com/webstore/detail/lightning-linter-chrome/mcpnifepmgbbebcocfdpghgloaaklgjj">Chrome Extension</a> which exposes the /lint-json endpoint to the Salesforce Developer Console.
+<BR /><BR />
 </P>
 <P>
 This service is not an official product of Salesforce.com and is offered without support.
 </P>
-
+</div>
 {/body_content}
