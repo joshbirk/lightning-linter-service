@@ -117,7 +117,7 @@ module.exports = {
         console.log('render reports');
         res.render('pg_lint_org',{
             bundles : bundles,
-            login: true
+            login: false
           });
     },
 
