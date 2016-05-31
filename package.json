@@ -10,7 +10,9 @@
   	"salesforce-lightning-cli":"*",
   	"express":"*",
   	"body-parser":"*",
-  	"express-dustjs":"*"
+  	"express-dustjs":"*",
+    "express-session":"*",
+  	"jsforce":"*"
   },
   "author": "",
   "license": "ISC"

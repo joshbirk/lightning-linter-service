@@ -1,0 +1,15 @@
+{>"tmpl_main"/}
+
+{<title}Lightning Lint Service{/title}
+{<body_content}
+
+<h2 class="slds-text-heading--large slds-truncate">Welcome to Lightning Linter Service</h2>
+<P>
+This is a web application wrapper around <a href="https://www.npmjs.com/package/salesforce-lightning-cli">Salesforce Lightning CLI</a>, using 
+the same pacakge but exposing Linter in the browser so as to not require syncing components on the client to run.
+</P>
+<P>
+This service is not an official product of Salesforce.com and is offered without support.
+</P>
+
+{/body_content}

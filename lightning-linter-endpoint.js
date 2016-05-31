@@ -89,13 +89,46 @@ function processFunctionCode(code) {
 
 
 module.exports = {
-   addRoutes: function(app,debug) {  
+
+    createOrgReport: function(res,records) {
+        var bundles = []
+        var current_bundle = '';
+        console.log('folding bundles for '+records.length+' records');
+        for (var i = 0; i < records.length; i++){ //fold all bundles into one object
+            console.log(records[i].AuraDefinitionBundle.DeveloperName != current_bundle);   
+            if(records[i].AuraDefinitionBundle.DeveloperName != current_bundle) {
+                console.log(records[i].AuraDefinitionBundle.DeveloperName);
+                bundles.push({DeveloperName: records[i].AuraDefinitionBundle.DeveloperName});
+                current_bundle = records[i].AuraDefinitionBundle.DeveloperName;
+                console.log(bundles);
+            }
+        }
+
+        console.log('folding components');
+        for (var i = 0; i < bundles.length; i++) { //fold all components into bundles
+            bundles[i].components = [];
+            for (var x = 0; x < records.length; x++){ 
+                if(records[x].AuraDefinitionBundle.DeveloperName == bundles[i].DeveloperName) {
+                    bundles[i].components.push({DefType: records[x].DefType, Source: records[x].Source, messages: lint(records[x].Source)});
+                }
+            }
+        }
+
+        console.log('render reports');
+        res.render('pg_lint_org',{
+            bundles : bundles,
+            login: true
+          });
+    },
+
+
+    addRoutes: function(app,debug) {  
       if(debug) {console.log('setting up lint endpoint');}    
 
        //POST Singleton Lightning Code
         app.post('/lint', function (req, res) {
           var messages = lint(req.body);
-          res.render('lint',{
+          res.render('inc_lint',{
             messages : messages
           });
         });
@@ -107,8 +140,9 @@ module.exports = {
 
 
         app.get('/lint', function (req,res) {
-              res.render('lint',{
-                messages : null
+              res.render('pg_lint_code',{
+                messages : null,
+                login : req.session.accessToken == null
               });
         });
       

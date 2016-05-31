@@ -1,5 +1,5 @@
 var lint_endpoints = require('./lightning-linter-endpoint');
-
+var org_endpoints = require('./org-endpoints');
 /*Express*/
 //express for routing
 var port = process.env.PORT || 8675;
@@ -7,9 +7,21 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 var path = require('path')
- var dust = require('express-dustjs')
+var dust = require('express-dustjs')
+var session = require('express-session')
 
 app.use(bodyParser.text({ type: 'text/plain' }));
+
+
+var sessionOptions = {
+  secret: "mxyplyx",
+  resave : true,
+  saveUninitialized : false
+};
+
+app.use(session(sessionOptions));
+
+
 app.engine('dust', dust.engine({
   // Use dustjs-helpers 
   useHelpers: true
@@ -18,20 +30,43 @@ app.set('view engine', 'dust');
 app.set('views', path.resolve(__dirname, './static/views'));
 app.use(express.static('./static'));
 
-console.log(lint_endpoints);
 lint_endpoints.addRoutes(app,true);
+org_endpoints.addOAuthRoutes(app);
+
 
 app.get('/', function (req, res) {
-  // Render template with locals 
-  res.render('index', {
-    name : "World"
+  console.log(req.session.accessToken == null);
+  res.render('pg_index', {
+    name : "World",
+    login : req.session.accessToken == null
   })
 })
 
-app.get('/source', function (req, res) {
-  // Render template with locals 
-  res.render('source');
+app.get('/success', function (req, res) {
+  res.render('pg_index', {
+    name : "Success",
+    login : req.session.accessToken == null
+  })
 })
+
+app.get('/error', function (req, res) {
+  res.render('pg_index', {
+    name : "Error",
+    login : req.session.accessToken == null
+  })
+})
+
+app.get('/lint_code', function (req, res) {
+  res.render('pg_lint_code', {
+    login : req.session.accessToken == null
+  });
+})
+
+
+app.get('/lint_org', function (req, res) {
+  org_endpoints.getLightningComponentJS(req,res,lint_endpoints.createOrgReport);
+})
+
 
 
 //setup actual server

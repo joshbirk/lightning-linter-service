@@ -1,0 +1,64 @@
+{>"tmpl_main"/}
+{<title}Lightning Linter Service:: Salesforce Instance{/title}
+
+{<body_content}
+
+{#bundles}
+<div class="slds-card">
+  <div class="slds-card__header slds-grid">
+    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+      <div class="slds-media__figure">
+        <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/slds_105/assets/icons/custom-sprite/svg/symbols.svg#custom100"></use>
+        </svg>
+      </div>
+      <div class="slds-media__body">
+        <h2 class="slds-text-heading--large slds-truncate">{DeveloperName}</h2>
+      </div>
+    </div>
+    </div>
+    <div class="slds-card__body" style="background-color: #EEF1F6">
+    {#components}
+        <div class="slds-text-heading--medium slds-m-left--medium">{DefType}</div>
+        
+        <ul class="slds-list--vertical slds-has-dividers--top-space slds-has-selection">
+        {@gt key=messages.length value=0}
+        {#messages}
+          <li class="slds-list__item" style="background-color: white">
+            <div class="line-div slds-media slds-tile" data-line-number="{line}">
+              <div class="slds-text-heading--large">{line}</div>
+              {column}
+              <div class="slds-media__body slds-m-left--medium">
+                {message}
+                <ul class="slds-tile__detail slds-list--horizontal slds-has-dividers slds-text-body--small">
+                  <li class="slds-truncate slds-list__item">{source}</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        {/messages}
+        {/gt}
+
+        {@eq key=messages.length value=0}
+          <li class="slds-list__item">
+            <div class="line-div slds-media slds-tile">
+              <div class="slds-text-heading--large">&nbsp;</div>
+              &nbsp;
+              <div class="slds-media__body slds-m-left--medium">
+                No errors found
+              </div>
+            </div>
+          </li>
+        {/eq}
+
+
+        </ul>
+
+    {/components}
+    </div>
+  <div class="slds-card__footer"></div>
+</div>
+{/bundles}
+
+{/body_content}
+

@@ -1,10 +1,15 @@
-<HTML>
-<HEAD>
-<script src="/codemirror/lib/codemirror.js"></script>
-<link rel="stylesheet" href="/codemirror/lib/codemirror.css">
-<link rel="stylesheet" href="/slds_105/assets/styles/salesforce-lightning-design-system.min.css">
-<script src="/codemirror/mode/javascript/javascript.js"></script>
+{>"tmpl_main"/}
 
+{<title}Lightning Lint Service:ORG{/title}
+
+{<style_block}
+<link rel="stylesheet" href="/codemirror/lib/codemirror.css">
+{/style_block}
+
+{<script_block}
+
+<script src="/codemirror/lib/codemirror.js"></script>
+<script src="/codemirror/mode/javascript/javascript.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 <script>
@@ -39,9 +44,12 @@ $(document).ready(function() {
 
 });
 </script>
-</HEAD>
 
-<BODY>  
+{/script_block}
+
+
+{<body_content}
+
 <textarea id="source" style="width:300px; height:50%">
 
 </textarea>
@@ -54,4 +62,4 @@ $(document).ready(function() {
 
 
 </div>
-</HTML>
+{/body_content}

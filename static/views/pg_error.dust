@@ -1,0 +1,25 @@
+{>"tmpl_main"/}
+
+{<title}Lightning Lint Service{/title}
+
+
+
+{<body_content}
+
+<div>
+  <div class="slds-notify slds-notify--toast slds-theme--error" role="alert">
+          <div class="notify__content slds-grid">
+              <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex">
+                <use xlink:href="/slds_105/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+              </svg>
+              <div class="slds-col slds-align-middle">
+                <h2 class="slds-text-heading--small">{error_title}</h2>
+              </div>
+            </div>
+  </div>
+   <div class="slds-col slds-align-middle slds-m-left--large">
+          <p>{error_message|s}</p>
+   </div>
+</div>
+
+{/body_content}
