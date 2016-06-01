@@ -1,6 +1,6 @@
 {>"tmpl_main"/}
 
-{<title}Lightning Lint Service:ORG{/title}
+{<title}Lightning Lint Service:Code{/title}
 
 {<style_block}
 <link rel="stylesheet" href="/codemirror/lib/codemirror.css">
