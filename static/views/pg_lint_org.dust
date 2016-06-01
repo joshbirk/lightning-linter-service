@@ -25,6 +25,7 @@
         {@gt key=messages.length value=0}
         {#messages}
           <li class="slds-list__item" style="background-color: white">
+           <div class="line-div slds-media slds-tile" data-line-number="{line}">
             <div class="slds-p-around--x-small">
             {@eq key=severity value="1" type="number"}
               <span class="slds-icon_container">
@@ -41,7 +42,6 @@
               </span>
             {/eq}
             </div>
-            <div class="line-div slds-media slds-tile" data-line-number="{line}">
               <div class="slds-text-heading--large">{line}</div>
               {column}
               <div class="slds-media__body slds-m-left--medium">
