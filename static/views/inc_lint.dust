@@ -2,6 +2,22 @@
 {#messages}
   <li class="slds-list__item">
     <div class="line-div slds-media slds-tile" data-line-number="{line}">
+      <div class="slds-p-around--small">
+      {@eq key=severity value="1" type="number"}
+        <span class="slds-icon_container">
+          <svg aria-hidden="true" class="slds-icon--small slds-icon-text-error">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/slds_105/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+          </svg>
+        </span>
+      {/eq}
+      {@eq key=severity value="2" type="number"}
+        <span class="slds-icon_container">
+          <svg aria-hidden="true" class="slds-icon--small slds-icon-text-warning">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/slds_105/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+          </svg>
+        </span>
+      {/eq}
+      </div>
       <div class="slds-text-heading--large">{line}</div>
       {column}
       <div class="slds-media__body slds-m-left--medium">

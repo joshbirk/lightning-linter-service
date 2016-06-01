@@ -20,7 +20,8 @@ var glob = require('glob');
 var path = require('path');
 var fs = require('fs');
 var cli = require('heroku-cli-util');
-var Linter = require('salesforce-lightning-cli/lib/linter.js');
+//var Linter = require('salesforce-lightning-cli/lib/linter.js');
+var linter = require('eslint').linter;
 var defaultConfig = require('salesforce-lightning-cli/lib/aura-component-config');
 var defaultStyle = require('salesforce-lightning-cli/lib/code-style-rules');
 var objectAssign = require('object-assign');
@@ -36,7 +37,8 @@ function lint(source) {
 
     source = processSingletonCode(source);
    
-    var messages = Linter(source,config,{});
+    //var messages = Linter.process(source,config,{});
+    var messages = linter.verify(source,config,{});
     console.log(messages);
 
     return messages;

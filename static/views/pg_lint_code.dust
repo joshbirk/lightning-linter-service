@@ -1,6 +1,6 @@
 {>"tmpl_main"/}
 
-{<title}Lightning Lint Service:Code{/title}
+{<title}Lightning Lint Service: Code{/title}
 
 {<style_block}
 <link rel="stylesheet" href="/codemirror/lib/codemirror.css">
@@ -29,6 +29,9 @@ $(document).ready(function() {
 			  dataType:"text",
 			  success: function(html) {
 			  		console.log('updated');
+					
+					console.log(html);
+					
 					$('#linter').html(html);
 					
 					$('.line-div').on('click',function() {
