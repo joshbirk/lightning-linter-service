@@ -7,7 +7,7 @@
 <div class="slds-m-right--large">
 <P>
 This is a web application wrapper around <a href="https://www.npmjs.com/package/salesforce-lightning-cli">Salesforce Lightning CLI</a>, using 
-the same pacakge but exposing Linter in the browser so as to not require syncing components on the client to run.
+the same npm package but exposing Linter in the browser so as to not require syncing components on the client to run.
 <BR /><BR />
 </P>
 <P>
