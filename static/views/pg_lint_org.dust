@@ -25,7 +25,7 @@
         {@gt key=messages.length value=0}
         {#messages}
           <li class="slds-list__item" style="background-color: white">
-            <div class="slds-p-around--small">
+            <div class="slds-p-around--x-small">
             {@eq key=severity value="1" type="number"}
               <span class="slds-icon_container">
                 <svg aria-hidden="true" class="slds-icon--small slds-icon-text-error">
