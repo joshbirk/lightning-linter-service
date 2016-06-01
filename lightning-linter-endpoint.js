@@ -38,7 +38,10 @@ function lint(source) {
     source = processSingletonCode(source);
    
     //var messages = Linter.process(source,config,{});
-    var messages = linter.verify(source,config,{});
+    var messages = linter.verify(source,config,{
+        allowInlineConfig: true, 
+        quiet: true
+        });
     console.log(messages);
 
     return messages;
