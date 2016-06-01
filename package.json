@@ -1,5 +1,5 @@
 {
-  "name": "Lightning Linter Web Service",
+  "name": "lightning-linter-web",
   "version": "1.0.1",
   "description": "A web app wrapper for salesforce-lightning-cli",
   "main": "index.js",
