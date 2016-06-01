@@ -34,7 +34,6 @@ org_endpoints.addOAuthRoutes(app);
 
 
 app.get('/', function (req, res) {
-  console.log(req.session.accessToken == null);
   res.render('pg_index', {
     name : "World",
     login : req.session.accessToken == null

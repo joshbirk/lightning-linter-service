@@ -33,16 +33,13 @@ function lint(source) {
     var config = {};
     objectAssign(config, defaultConfig);
 
-    console.log(source);
-
     source = processSingletonCode(source);
    
     var messages = linter.verify(source,config,{
         allowInlineConfig: true, 
         quiet: true
         });
-    console.log(messages);
-
+   
     return messages;
 }
 
@@ -97,18 +94,13 @@ module.exports = {
     createOrgReport: function(res,records) {
         var bundles = []
         var current_bundle = '';
-        console.log('folding bundles for '+records.length+' records');
         for (var i = 0; i < records.length; i++){ //fold all bundles into one object
-            console.log(records[i].AuraDefinitionBundle.DeveloperName != current_bundle);   
             if(records[i].AuraDefinitionBundle.DeveloperName != current_bundle) {
-                console.log(records[i].AuraDefinitionBundle.DeveloperName);
                 bundles.push({DeveloperName: records[i].AuraDefinitionBundle.DeveloperName});
                 current_bundle = records[i].AuraDefinitionBundle.DeveloperName;
-                console.log(bundles);
             }
         }
 
-        console.log('folding components');
         for (var i = 0; i < bundles.length; i++) { //fold all components into bundles
             bundles[i].components = [];
             for (var x = 0; x < records.length; x++){ 
@@ -118,7 +110,6 @@ module.exports = {
             }
         }
 
-        console.log('render reports');
         res.render('pg_lint_org',{
             bundles : bundles,
             login: false
@@ -127,8 +118,6 @@ module.exports = {
 
 
     addRoutes: function(app,debug) {  
-      if(debug) {console.log('setting up lint endpoint');}    
-
        //POST Singleton Lightning Code
         app.post('/lint', function (req, res) {
           var messages = lint(req.body);
@@ -150,8 +139,6 @@ module.exports = {
               });
         });
       
-
-      if(debug) {console.log('endpoint set');}    
 
   }
 }

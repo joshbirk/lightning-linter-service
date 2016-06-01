@@ -26,11 +26,6 @@ module.exports = {
 		    conn.authorize(code, function(err, userInfo) {
 		        if (err) { return console.error(err); }
 
-		        console.log('Access Token: ' + conn.accessToken);
-		        console.log('Instance URL: ' + conn.instanceUrl);
-		        console.log('User ID: ' + userInfo.id);
-		        console.log('Org ID: ' + userInfo.organizationId);
-
 		        req.session.accessToken = conn.accessToken;
 		        req.session.instanceUrl = conn.instanceUrl;
 		        res.redirect('/lint_org');
@@ -43,7 +38,6 @@ module.exports = {
 	getLightningComponentJS : function(req,res,handler) { //add errorHandler
 
 			if(req.session == null || req.session.accessToken == null) {
-				console.error('No Salesforce Session');
 				res.render('pg_error',{
 					error_title: 'No Salesforce Session',
 					error_message: 'Please <a href="/oauth/auth">log into Salesforce</a> to use this feature.',
@@ -60,7 +54,6 @@ module.exports = {
 				conn.query(query0, function(err, result) {
 						  if (err) { return console.error(err); handler(null); }
 						  else {
-						  	console.log('Found '+result.records.length+' components');
 						  	handler(res,result.records);
 						  }
 						});
