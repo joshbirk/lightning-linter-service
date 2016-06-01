@@ -12,12 +12,20 @@
 
 <div class="slds-page-header" role="banner">
  <div class="slds-grid">
- 	<div class="slds-col slds-has-flexi-truncate">
-	
-		<div class="slds-media__body">
-    	  <p class="slds-page-header__title slds-truncate slds-align-middle"><a href="/">Lightning Linter Service</a></p>
-    	</div>
-
+ 	
+    <div class="slds-col slds-has-flexi-truncate">
+	    <div class="slds-card__header slds-grid">
+        <div class="slds-media slds-media--center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/slds_105/assets/icons/custom-sprite/svg/symbols.svg#custom9"></use>
+            </svg>
+          </div>
+          <div class="slds-media__body">
+            <p class="slds-page-header__title slds-truncate slds-align-middle"><a href="/">Lightning Linter Service</a></p>
+    	  </div>
+        </div>
+        </div>
     </div>
 
 	 <div class="slds-col slds-no-flex slds-align-bottom">
