@@ -18,7 +18,7 @@ You can either <a href="/lint_code">submit code blocks for parsing</a> or <a hre
 <BR /><BR />
 </P>
 <P>
-This service is not an official product of Salesforce.com and is offered without support.
+This service is not an official product of Salesforce.com and is offered without support.  You can clone/contribute to the code <a href="https://github.com/joshbirk/lightning-linter-service">on github</a>.
 </P>
 </div>
 {/body_content}
