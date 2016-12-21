@@ -11,8 +11,8 @@ window.addEventListener("message", function(event) {
 
   if (event.data.type && (event.data.type == "LOCAL_VARS")) {
     if(event.data.title.indexOf('.js') > 0) {
-    	console.log($('#tab-1175').hasClass('x-active-tab'));
-    	if(event.data.source != current_code && $('#tab-1175').hasClass('x-tab-active')) {
+    	console.log($('#tab-1176').hasClass('x-active-tab'));
+    	if(event.data.source != current_code && $('#tab-1176').hasClass('x-tab-active')) {
     		current_code = event.data.source;
     		$.ajax({
 			  url:'https://lightning-linter.herokuapp.com/lint-json',
